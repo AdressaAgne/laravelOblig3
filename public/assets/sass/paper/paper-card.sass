@@ -1,0 +1,44 @@
+.paper-card
+    line-height: 1.4
+    border-radius: 1pt
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)
+    background-color: $paper-color
+    overflow: hidden
+    font-weight: 300
+    
+    &__header
+        padding: $paper-gutter
+        height: 20vh
+        min-height: 100px
+        background-size: cover
+        background-position: center
+        position: relative
+        
+        &--text
+            position: absolute
+            bottom: 20px
+            color: $paper-color-header
+            text-shadow: 0px 0px 20px rgba(0, 0, 0, .3)
+            font-weight: normal
+        
+    &__content
+        padding: $paper-gutter
+        &--text
+            font-weight: normal
+            & small
+                color: lighten($body-color-text, 30%)
+                display: block
+                width: 100%
+                font-weight: 300
+                font-size: 14px
+    
+    &__footer
+        border-top: 1px solid $paper-devider-color
+        padding: $paper-gutter
+        
+    &--no-image
+        background-color: $accent-color
+        color: $accent-color-text
+        
+        .paper-card__footer
+            border-top: 1px solid $accent-color-dark

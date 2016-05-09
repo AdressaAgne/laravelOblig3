@@ -1,0 +1,34 @@
+@import "vars"
+@import "fonts/roboto"
+@import "paper/paper"
+@import "iron/iron"
+
+*
+    margin: 0px
+    padding: 0px
+    outline: none
+    font-family: 'Roboto', sans-serif
+
+body, html
+    font-size: 14px
+    width: 100%
+    height: 100%
+    background-color: $body-color
+    color: $body-color-text
+
+body
+    padding-top: 60px
+
+.container
+    font-family: 'Roboto', sans-serif
+    
+    
+a
+    color: $theme-color
+    font-weight: bold
+    text-decoration: none
+    text-transform: uppercase
+    transition: color .2s
+    padding-right: $iron-grid-gutter
+    &:hover
+        color: $theme-color-light
