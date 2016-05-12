@@ -14,8 +14,11 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function(Blueprint $table){
             $table->increments('id');
+            $table->string('user_id');
             $table->string('header');
-            $table->string('image');
+            $table->string('slug');
+            $table->string('image')->default('placeholder.jpg');
+            $table->boolean('isGivenAway')->default(false);
             $table->text('content');
             $table->timestamps();
         });

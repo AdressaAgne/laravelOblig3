@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')</title>
+    <title>Give &amp; Get - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 <body>
@@ -14,5 +14,9 @@
             @yield('content')
         </div>
     </div>
+    
+    
+    <script src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 </html>

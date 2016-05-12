@@ -1,0 +1,68 @@
+.paper-form
+    width: 100%
+    position: relative
+    margin-top: 30px
+    font-weight: 300
+    height: 100%
+    
+    &--inline
+        display: inline-block
+        width: auto
+        margin-right: 20px
+
+    .paper-form__label
+        display: block
+        margin-bottom: 5px
+        font-size: 12px
+        color: $theme-color
+        position: absolute
+        background-color: transparent
+        top: 0px
+        transition: all .15s ease-in-out
+        &.active
+            top: -18px
+            font-size: 10px
+            
+    &__input, select, &__textarea
+        border-radius: 0px
+        appearance: none
+        width: 100%
+        height: inherit
+        background-color: transparent
+        border: none
+        border-bottom: 1px solid $paper-devider-color
+        outline: none
+        box-sizing: border-box
+        padding-bottom: 3px
+        padding-top: 3px
+        max-width: 100%
+    input[type='checkbox']
+        appearance: none
+        width: 20px
+        height: 20px
+        margin-bottom: -5px
+        border-radius: 2px
+        background-color: $paper-color
+        cursor: pointer
+        margin-right: 5px
+        border: 1px solid $paper-devider-color
+        outline: none
+        transition: all .2s
+        &:checked
+            background-color: $theme-color
+            border: 1px solid $theme-color
+        
+//        &:checked:before
+//            content: '✕'
+//            position: absolute
+//            color: $theme-color-text
+//            font-size: 14px
+//            width: inherit
+//            height: inherit
+//            text-align: center
+//            line-height: 20px
+//            display: block
+        
+        
+label
+    cursor: pointer

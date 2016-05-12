@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(tags::class);
         $this->call(items::class);
+        $this->call(item_tags_seeder::class);
     }
 }

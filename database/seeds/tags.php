@@ -13,7 +13,7 @@ class tags extends Seeder
     {
         DB::table('tags')->delete();
         
-        DB::table('tags')->insert([
+        $tagItem = [
             [
                 'name' => 'Antiques'
             ],
@@ -30,11 +30,65 @@ class tags extends Seeder
                 'name' => 'Cameras'
             ],
             [
-                'name' => 'Cars, Vehicles &amp; Parts'
+                'name' => 'Cars, Vehicles & Parts'
             ],
             [
                 'name' => 'Cell Phones'
+            ],
+            [
+                'name' => 'Clothing, Shoes & Accessories'
+            ],
+            [
+                'name' => 'Colletables'
+            ],
+            [
+                'name' => 'Cumputers & Networking'
+            ],
+            [
+                'name' => 'Crafts'
+            ],
+            [
+                'name' => 'Electronics'
+            ],
+            [
+                'name' => 'Health & Beauty'
+            ],
+            [
+                'name' => 'Hollyday & Seasonal'
+            ],
+            [
+                'name' => 'Home & Garden'
+            ],
+            [
+                'name' => 'Jewelry & Watches'
+            ],
+            [
+                'name' => 'Movies & Tv-shows'
+            ],
+            [
+                'name' => 'Music & Instruments'
+            ],
+            [
+                'name' => 'Pets'
+            ],
+            [
+                'name' => 'Sporting Goods'
+            ],
+            [
+                'name' => 'Toys & Hobbies'
+            ],
+            [
+                'name' => 'Video Games & Consolos'
+            ],
+            [
+                'name' => 'Other Stuff'
             ]
-        ]);
+        ];
+        
+        foreach($tagItem as &$tag){
+            $tag['slug'] = str_slug($tag['name'], '-');
+        }
+            
+        DB::table('tags')->insert($tagItem);
     }
 }

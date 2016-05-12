@@ -1,0 +1,1 @@
+$(function(){$("#burger").click(function(){$(".menu__item:not(.visible--phone)").toggle()}),$("[class^=paper-form__]").on("focus",function(){$(this).prev("label").addClass("active")}).on("blur",function(){0===$(this).val().length&&$(this).prev("label").removeClass("active")})});

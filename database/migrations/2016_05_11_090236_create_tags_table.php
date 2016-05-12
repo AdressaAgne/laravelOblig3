@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrateTagsTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,6 +15,7 @@ class CrateTagsTable extends Migration
         Schema::create('tags', function(Blueprint $table){
             $table->increments('id');
             $table->string('name');
+            $table->string('slug');
         });
     }
 

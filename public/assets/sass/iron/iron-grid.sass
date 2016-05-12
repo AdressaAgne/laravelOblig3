@@ -25,12 +25,10 @@
         .#{$iron-grid-col-name}-#{$iron-grid-breakpoint-large-name}-#{$i}
             width: (100% / 12) * $i
 
-
 // Normal
 @for $i from 1 to $iron-grid-columns+1
     .#{$iron-grid-col-name}-#{$i}
         width: (100% / 12) * $i
-
 
 // Tablet
 @media (max-width: $iron-grid-breakpoint-medium)

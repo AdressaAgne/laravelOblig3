@@ -1,4 +1,4 @@
-<div class="col-l-3 col-4 col-m-6 col-s-6">
+<div>
     <article class="paper-card">
        
         <header class="paper-card__header" style="background-image:url({{asset('assets/img/'.$item->image)}});">
@@ -9,9 +9,16 @@
             {{ $item->content }}
         </main>
         
-
         <footer class="paper-card__footer">
-            <a href="">view</a>
+            <a href="{{url('/items', $item->slug)}}">view</a>
+        </footer>
+           
+        <footer class="paper-card__footer">
+
+                @foreach($item->tags as $tag)
+                    <a href="{{ url('category', $tag->slug) }}">{{$tag->name}}</a>
+                @endforeach
+
         </footer>
     </article>
 </div>
