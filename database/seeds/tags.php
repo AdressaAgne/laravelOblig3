@@ -39,10 +39,10 @@ class tags extends Seeder
                 'name' => 'Clothing, Shoes & Accessories'
             ],
             [
-                'name' => 'Colletables'
+                'name' => 'Collectable'
             ],
             [
-                'name' => 'Cumputers & Networking'
+                'name' => 'Computers & Networking'
             ],
             [
                 'name' => 'Crafts'
@@ -54,7 +54,7 @@ class tags extends Seeder
                 'name' => 'Health & Beauty'
             ],
             [
-                'name' => 'Hollyday & Seasonal'
+                'name' => 'Holiday & Seasonal'
             ],
             [
                 'name' => 'Home & Garden'
