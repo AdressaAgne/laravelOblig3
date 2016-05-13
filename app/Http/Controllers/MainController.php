@@ -38,9 +38,9 @@ class MainController extends Controller
         $data = Request::all();
 
         $item = Item::create([
-            'header' => $data['title'],
+            'header' => $data['header'],
             'content' => $data['content'],
-            'slug'  => str_slug($data['title'], '-'),
+            'slug'  => str_slug($data['header'], '-'),
             'image'  => $data['image']
         ]);
         
@@ -53,18 +53,47 @@ class MainController extends Controller
         
     }
    
-    public function update(){
-        
-    }
+    
     
     // 1 item
     public function show($slug){
-        
-        return view('items.show', ['item' => item::where('slug', $slug)->get()->first()]);
+        return view('items.show', [
+            'item' => item::where('slug', $slug)->get()->first()
+        ]);
     }
-   
-    public function edit(){
+    // Update Post
+    public function update(Item $item){
+        $data = Request::all();
         
+        $item = Item::update([
+            'header' => $data['header'],
+            'content' => $data['content'],
+            'slug'  => str_slug($data['header'], '-'),
+            'image'  => $data['image']
+        ]);
+        
+        $item->tags()->sync($data['tags']);
+        
+        return redirect('items');
+    }
+    
+    
+    public function api_items(){
+        return \App\Item::all();
+    }
+    public function api_tags(){
+        return \App\Tag::all();
+    }
+    
+    // Update view
+    public function edit($slug){
+        
+        $item = item::where('slug', $slug)->get()->first();
+        
+            
+        return view('items.edit', [
+            'item' => $item
+        ]);
     }
     
 }

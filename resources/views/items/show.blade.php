@@ -18,7 +18,7 @@
         
         <div class="col-8">{{ $item->content }}</div>
     </div>
-
+    
     <footer class="paper-card__footer row">
         <a href="">Message Owner</a>
     </footer>
