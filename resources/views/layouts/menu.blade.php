@@ -9,9 +9,13 @@
                 @endforeach
             </ul>
         </li>
-        <li class="paper-navbar__item"><a href="{{ url('/items') }}">Find</a></li>
-        <li class="paper-navbar__item"><a href="{{ url('/items/create') }}">Add Item</a></li>
-        <li class="paper-navbar__item"><a href="{{ url('/login') }}">Login</a></li>
-        <li class="paper-navbar__item"><a href="{{ url('/register') }}">Register</a></li>
+        
+        @if (Auth::check())
+            <li class="paper-navbar__item"><a href="{{ url('/items/create') }}">Add Item</a></li>
+            <li class="paper-navbar__item"><a href="{{ url('/logout') }}">Logout</a></li>
+        @else 
+            <li class="paper-navbar__item"><a href="{{ url('/login') }}">Login</a></li>
+            <li class="paper-navbar__item"><a href="{{ url('/register') }}">Register</a></li>
+        @endif
     </ul>
 </nav>

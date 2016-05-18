@@ -5,53 +5,13 @@
 
 
 @section('content')
-<section>
-    <div class="paper-card">
-    {!! Form::Open() !!}
-        <main class="paper-card__content">
-            <h1 class="paper-card__content--text">Item to give away</h1>
+    <section>
+        <div class="paper-card">
+            {!! Form::Open(['method' => 'PATCH', 'url' => 'items/'.$item->slug]) !!}
 
-            <div class="col-12">
-                <div class="paper-form">
-                    <label for="title" class="paper-form__label active">Title:</label>
-                    <input id="title" type="text" class="paper-form__input" name="header" value="{{ $item->header }}">
-                </div>
-            </div>
+                @include('items.form', ['submitText' => 'Update Item', 'item' => $item])
 
-            <div class="col-12">
-                <div class="paper-form">
-                    <label for="image" class="paper-form__label active">Image url:</label>
-                    <input id="image" type="text" class="paper-form__input" name="image" value="{{ $item->image }}">
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="paper-form" style="height: 100px">
-                    <label class="paper-form__label active">Tags:</label>
-
-                    @foreach($tags as $key => $tag)
-                       <div class="col-4 col-m-6">
-                        <label> 
-                            <input type="checkbox" value="{{$tag->id}}" name="tags[]" {{ isset($item->tags[$tag->id]) ? 'checked' :'' }}> {{$tag->name}}({{$key}})
-                        </label>
-                        </div>
-                    @endforeach
-
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="paper-form">
-                    <label for="content" class="paper-form__label active">Content:</label>
-                    <textarea id="content" name="content" class="paper-form__textarea" id="" cols="30" rows="10">{{ $item->content }}</textarea>
-                </div>
-            </div>
-        </main>
-        <footer class="paper-card__footer row">
-            <input type="submit" class="paper-button">
-        </footer>
-    {!! Form::close() !!}
-    </div>
-</section>
-
+            {!! Form::Close() !!}
+        </div>
+    </section>
 @endsection

@@ -5,12 +5,13 @@
 
 
 @section('content')
-<section>
-    <div class="paper-card">
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/items') }}">
-            @include('items.form')
-        </form>
-    </div>
-</section>
+    <section>
+        <div class="paper-card">
+            {!! Form::Open(['url' => 'items']) !!}
 
+                @include('items.form', ['submitText' => 'Add Item', 'item' => null, 'selectedTags' => null])
+
+            {!! Form::Close() !!}
+        </div>
+    </section>
 @endsection

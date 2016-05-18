@@ -4,23 +4,32 @@
 
 
 @section('content')
-<article class="col-12 paper-card">
-    <div class="paper-card__content">
-        <h1 class="paper-card__content--text">{{$item->header}} <small>Posted by: </small></h1>
-        <ul class="paper-chips">
-            @foreach($item->tags as $tag)
-                <li class="paper-chips__item paper-chips__item--small"><a href="{{ url('/category', $tag->slug) }}">{{$tag->name}}</a></li>
-            @endforeach
-        </ul>
-        <div class="col-4">
-            <img src="{{asset('assets/img/'.$item->image)}}" alt="">
+
+<div class="col-2">
+   <h1>Tags</h1>
+    <ul>
+    @foreach($item->tags as $tag)
+        <li><a href="{{ url('category', $tag->slug) }}">{{$tag->name}}</a></li>
+    @endforeach
+    </ul>
+</div>
+<article class="paper-card col-10">
+    <header class="paper-card__header" style="background-image:url({{asset('assets/img/'.$item->image)}});">
+
+    </header>
+
+    <main class="paper-card__content">
+       <h2 class="paper-card--text">{{$item->header}} <small>Posted by: {{$item->user->name}}</small></h2>
+        {{ $item->content }}
+    </main>
+
+    <footer class="paper-card__footer">
+        <div class="row">
+            <a href="/message/send/{{$item->user->email}}" class="paper-button">Message Owner</a>
+            <a href="/items/{{$item->slug}}/edit">Edit</a>
+            <a href="/items/{{$item->slug}}/delete">Delete</a>
         </div>
-        
-        <div class="col-8">{{ $item->content }}</div>
-    </div>
-    
-    <footer class="paper-card__footer row">
-        <a href="">Message Owner</a>
     </footer>
 </article>
+
 @endsection

@@ -2,25 +2,25 @@
 
 // palette Colors
 
-$palette-red:             #F44336
-$palette-pink:            #E91E63
-$palette-purple:          #9C27B0
-$palette-deep-purple:     #673AB7
-$palette-indigo:          #3F51B5
-$palette-blue:            #2196F3
-$palette-light-blue:      #03A9F4
-$palette-cyan:            #00BCD4
-$palette-teal:            #009688
-$palette-green:           #4CAF50
-$palette-light-green:     #8BC34A
-$palette-lime:            #CDDC39
-$palette-yellow:          #FFEB3B
-$palette-amber:           #FFC107
-$palette-orange:          #FF9800
-$palette-deep-orange:     #FF5722
-$palette-brown:           #795548
-$palette-grey:            #9E9E9E
-$palette-blue-grey:       #607D8B
+$palette-red:             #F44336 //   | | | | | Error     
+$palette-pink:            #E91E63 //   | | |o| |            
+$palette-purple:          #9C27B0 //   | | | |x|            
+$palette-deep-purple:     #673AB7 //   | | | | |            
+$palette-indigo:          #3F51B5 //   | | | | |
+$palette-blue:            #2196F3 //   | | | | |
+$palette-light-blue:      #03A9F4 //   | | | | |
+$palette-cyan:            #00BCD4 //   | | | | |
+$palette-teal:            #009688 //   |x| |x|x|
+$palette-green:           #4CAF50 //   |x|x| | |
+$palette-light-green:     #8BC34A //   | |x| | |  Success
+$palette-lime:            #CDDC39 //   | | | | |
+$palette-yellow:          #FFEB3B //   | | | | |
+$palette-amber:           #FFC107 //   | | | | |  Warning
+$palette-orange:          #FF9800 //   | | | | |
+$palette-deep-orange:     #FF5722 //   | | | | |
+$palette-brown:           #795548 //   | | | | |
+$palette-grey:            #9E9E9E //   |o|o| | |
+$palette-blue-grey:       #607D8B //   |o|o| |o|
 
 $palette-mix: mix($palette-red, $palette-deep-purple)
 
@@ -50,7 +50,7 @@ $theme-color-light:    lighten($theme-color, $color-percent)
 $theme-color-text:     #f8f8f8
 
 
-$accent-color:         #FF9800
+$accent-color:         $palette-blue-grey
 $accent-color-dark:    darken($accent-color, $color-percent)
 $accent-color-light:   lighten($accent-color, $color-percent)
 $accent-color-text:    #222222

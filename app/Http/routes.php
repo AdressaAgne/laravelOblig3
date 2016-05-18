@@ -1,14 +1,46 @@
 <?php
 
 
-Route::get('/', 'MainController@index');
-Route::resource('items', 'MainController');
+Route::get('/', 'HomeController@index');
+
+//Route::resource('items', 'ItemController');
+
+Route::get('items', 'ItemController@index');
+
+Route::get('items/create', [
+    'middleware' => 'auth',
+    'uses' => 'ItemController@create'
+]);
+
+Route::patch('items/{items}', [
+    'middleware' => 'auth',
+    'uses' => 'ItemController@update'
+]);
+
+Route::delete('items/{items}/delete', [
+    'middleware' => 'auth',
+    'uses' => 'ItemController@destroy'
+]);
+
+Route::get('items/{items}', 'ItemController@show');
+
+Route::get('items/{items}/edit', [
+    'middleware' => 'auth',
+    'uses' => 'ItemController@edit'
+]);
+
 
 Route::get('category', 'CategoryController@main');
 Route::get('category/{slug}', 'CategoryController@index');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/api/items', 'MainController@api_items');
-Route::get('/api/tags', 'MainController@api_tags');
+Route::get('message', 'MessageController@index');
+Route::get('message/send', 'MessageController@send');
+Route::get('message/send/{user}', 'MessageController@sendTo');
+
+/**
+*   Api
+*/
+Route::get('/api/items', 'ApiController@items');
+Route::get('/api/tags', 'ApiController@tags');

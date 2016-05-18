@@ -1,45 +1,38 @@
 <main class="paper-card__content">
    <h1 class="paper-card__content--text">Item to give away</h1>
 
-
-    {!! csrf_field() !!}
-
     <div class="col-12">
-        <div class="paper-form">
-            <label for="title" class="paper-form__label{{ old('title') ? ' active' : '' }}">Title:</label>
-            <input id="title" type="text" class="paper-form__input" name="header" value="{{ old('title') }}">
+        <div class="paper-form">            
+            {!! Form::label('header', 'Title:', ['class' => 'paper-form__label']) !!}
+            {!! Form::text('header', $item['header'], ['class' => 'paper-form__input']) !!}
         </div>
     </div>
 
     <div class="col-12">
         <div class="paper-form">
-            <label for="image" class="paper-form__label{{ old('image') ? ' active' : '' }}">Image url:</label>
-            <input id="image" type="text" class="paper-form__input" name="image" value="{{ old('title') }}">
+            {!! Form::label('image', 'Image:', ['class' => 'paper-form__label']) !!}
+            {!! Form::text('image', $item['image'], ['class' => 'paper-form__input']) !!}
         </div>
     </div>
 
     <div class="col-12">
         <div class="paper-form" style="height: 100px">
-            <label class="paper-form__label active">Tags:</label>
-
-            @foreach($tags as $tag)
-               <div class="col-4 col-m-6">
-                <label>
-                    <input type="checkbox" value="{{$tag->id}}" name="tags[]"> {{$tag->name}}
-                </label>
-                </div>
-            @endforeach
-
+            {!! Form::label('tag_list', 'Select Tags:', ['class' => 'paper-form__label active']) !!}
+            {!! Form::select('tag_list[]', $tagList, $selectedTags, ['id' => 'tag_list', 'class' => 'paper-form__input', 'multiple']) !!}
         </div>
     </div>
-
+   
     <div class="col-12">
         <div class="paper-form">
-            <label for="content" class="paper-form__label{{ old('content') ? ' active' : '' }}">Content:</label>
-            <textarea id="content" name="content" class="paper-form__textarea" id="" cols="30" rows="10">{{ old('title') }}</textarea>
+            {!! Form::label('content', 'Content:', ['class' => 'paper-form__label']) !!}
+            {!! Form::textarea('content', $item['content'], ['class' => 'paper-form__input']) !!}
         </div>
     </div>
 </main>
 <footer class="paper-card__footer row">
-    <input type="submit" class="paper-button">
+    {!! Form::submit($submitText, ['class' => 'paper-button']) !!}
 </footer>
+
+@section('footer')
+    <script>$('#tag_list').select2();</script>
+@endsection

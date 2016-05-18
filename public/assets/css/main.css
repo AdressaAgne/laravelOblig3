@@ -13,7 +13,6 @@
     background-size: cover;
     background-position: center; }
     .paper-card__header--text {
-      position: absolute;
       bottom: 20px;
       color: #fefefe;
       text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
@@ -33,10 +32,10 @@
     border-top: 1px solid #E0E0E0;
     padding: 20px; }
   .paper-card--no-image {
-    background-color: #FF9800;
+    background-color: #607D8B;
     color: #222222; }
     .paper-card--no-image .paper-card__footer {
-      border-top: 1px solid #cc7a00; }
+      border-top: 1px solid #4b626d; }
 
 .paper-button {
   -webkit-appearance: none;

@@ -40,7 +40,7 @@ class items extends Seeder
             
         ];
         foreach($items as &$item){
-            $item['slug'] = str_slug($item['header'], '-');
+            $item['slug'] = str_slug(uniqid($item['header']), '-');
         }
         DB::table('items')->insert($items);
     }
