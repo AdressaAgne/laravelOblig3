@@ -28,12 +28,10 @@ class ItemController extends Controller
 
     // Create Post
     public function store(){
-        
-        
         $data = Request::all();
         $data['slug'] = str_slug(uniqid($data['header']), '-');
         
-        $item = Auth::user()->Item::create($data);
+        $item = Item::create($data);
         
         $item->tags()->attach($data['tag_list']);
         

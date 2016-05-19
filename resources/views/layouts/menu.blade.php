@@ -12,6 +12,7 @@
         
         @if (Auth::check())
             <li class="paper-navbar__item"><a href="{{ url('/items/create') }}">Add Item</a></li>
+            <li class="paper-navbar__item"><a href="{{ url('/message') }}">Inbox</a></li>
             <li class="paper-navbar__item"><a href="{{ url('/logout') }}">Logout</a></li>
         @else 
             <li class="paper-navbar__item"><a href="{{ url('/login') }}">Login</a></li>

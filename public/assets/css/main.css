@@ -33,7 +33,7 @@
     padding: 20px; }
   .paper-card--no-image {
     background-color: #607D8B;
-    color: #222222; }
+    color: #f8f8f8; }
     .paper-card--no-image .paper-card__footer {
       border-top: 1px solid #4b626d; }
 
@@ -240,6 +240,44 @@ h1.page-header, h2.page-header, h3.page-header {
   padding-bottom: 5px;
   margin-bottom: 5px;
   border-bottom: 1px solid #E0E0E0; }
+h1 small, h2 small, h3 small {
+  display: block;
+  font-size: 0.6em; }
+
+.table {
+  width: 100%;
+  color: #607D8B;
+  display: table;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid #607D8B;
+  box-sizing: border-box; }
+  .table__cell {
+    display: table-cell;
+    padding: 5px 20px;
+    line-height: 50px;
+    box-sizing: border-box;
+    table-layout: auto; }
+  .table a {
+    color: #222222;
+    font-weight: 300;
+    clear: both;
+    display: table-row;
+    box-sizing: border-box; }
+    .table a:nth-of-type(odd) {
+      background-color: #e4eaec; }
+    .table a:hover {
+      background-color: #d5dee2; }
+  .table__head {
+    background-color: #607D8B;
+    color: #f8f8f8;
+    width: 100%;
+    height: 60px;
+    display: table-row; }
+  .table__image {
+    background-size: cover;
+    background-position: center center;
+    height: 60px; }
 
 /* © Agne Ødegaard - Iron-grid
  * 

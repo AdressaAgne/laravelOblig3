@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\User as User;
+use App\Message as Message;
 
 class MessageController extends Controller
 {
@@ -17,17 +18,23 @@ class MessageController extends Controller
     }
     
     public function index(){
-        return 'Inbox View';
+        return View('message.index');
+    }
+    public function sent(){
+        return View('message.sent');
     }
     
     public function sendTo($usermail){
         
         $user = User::where('email', $usermail)->get()->first();
         
-        return $user;
+        return View('message.send', compact('user'));
     }
     
     public function send(){
-        return 'Send View';
+        return View('message.send');
+    }
+    public function message($msg){
+        return $msg;
     }
 }

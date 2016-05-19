@@ -7,6 +7,11 @@ Route::get('/', 'HomeController@index');
 
 Route::get('items', 'ItemController@index');
 
+Route::post('items', [
+    'middleware' => 'auth',
+    'uses' => 'ItemController@store'
+]);
+
 Route::get('items/create', [
     'middleware' => 'auth',
     'uses' => 'ItemController@create'
@@ -35,9 +40,11 @@ Route::get('category/{slug}', 'CategoryController@index');
 
 Route::auth();
 
-Route::get('message', 'MessageController@index');
+Route::get('message/', 'MessageController@index');
+Route::get('message/sent', 'MessageController@sent');
 Route::get('message/send', 'MessageController@send');
 Route::get('message/send/{user}', 'MessageController@sendTo');
+Route::get('message/{message}', 'MessageController@message');
 
 /**
 *   Api
