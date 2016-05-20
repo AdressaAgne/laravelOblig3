@@ -18,6 +18,13 @@
     </div>
     
     
+    <footer class="page-footer">
+        <div class="col-8 col-m-10 col--center">
+            @yield('footer')
+        </div>
+        <div class="page-footer__copy">© Team Whisky</div>
+    </footer>
+    
     <script src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>

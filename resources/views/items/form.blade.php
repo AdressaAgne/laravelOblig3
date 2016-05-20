@@ -33,6 +33,6 @@
     {!! Form::submit($submitText, ['class' => 'paper-button']) !!}
 </footer>
 
-@section('footer')
+@section('scripts')
     <script>$('#tag_list').select2();</script>
 @endsection
