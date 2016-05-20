@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\User as User;
+use App\Item as Item;
 use App\Message as Message;
 
 class MessageController extends Controller
@@ -24,11 +25,15 @@ class MessageController extends Controller
         return View('message.sent');
     }
     
-    public function sendTo($usermail){
+    public function sendTo($usermail, $itemSlug){
         
-        $user = User::where('email', $usermail)->get()->first();
-        
-        return View('message.send', compact('user'));
+        $user = User::where('email', $usermail)->get()->lists('name', 'id');
+        $item = Item::where('slug', $itemSlug)->get()->lists('header', 'id');
+        $itemData = Item::where('slug', $itemSlug)->get()->first();
+        $items = Item::all()->lists('header', 'id');
+        $users = User::all()->lists('name', 'id');
+
+        return View('message.send', compact('user', 'users', 'item', 'items', 'itemData'));
     }
     
     public function send(){

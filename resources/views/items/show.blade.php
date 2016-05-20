@@ -25,7 +25,7 @@
 
     <footer class="paper-card__footer">
         <div class="row">
-            <a href="/message/send/{{$item->user->email}}" class="paper-button">Message Owner</a>
+            <a href="/message/send/{{$item->user->email}}/{{$item->slug}}" class="paper-button">Message Owner</a>
             <a href="/items/{{$item->slug}}/edit">Edit</a>
             <a href="/items/{{$item->slug}}/delete">Delete</a>
         </div>

@@ -21,6 +21,6 @@
     <script src="{{ asset('assets/js/jquery-1.12.3.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
-    @yield('footer')
+    @yield('scripts')
 </body>
 </html>
