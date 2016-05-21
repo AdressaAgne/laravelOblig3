@@ -20,7 +20,7 @@
     </div>
     
 @foreach(Auth::user()->inbox as $msg)
-    <a href="{{ url('/message/1') }}">
+    <a href="{{ url('/message', $msg->id) }}">
         <div class="table__cell">{{$msg->from->name}}</div>
         <div class="table__cell">{{$msg->item->header}}</div>
         <div class="table__cell">{{$msg->content}}</div>

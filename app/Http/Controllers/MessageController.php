@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 use App\User as User;
 use App\Item as Item;
 use App\Message as Message;
+use Request;
+use Auth;
 
 class MessageController extends Controller
 {
@@ -36,10 +37,22 @@ class MessageController extends Controller
         return View('message.send', compact('user', 'users', 'item', 'items', 'itemData'));
     }
     
+    public function store(){
+        
+        $msg = Auth::user()->sent()->save(new Message(Request::all()));
+        return redirect('message');
+    }
+    
     public function send(){
         return View('message.send');
     }
-    public function message($msg){
-        return $msg;
+    public function message($id){
+        $msg = Message::findOrFail($id);
+        if(Auth::id() == $msg->to_user || Auth::id() == $msg->from_user){
+            return View('message.show', compact('msg'));
+        } else {
+            return redirect('message');
+        }
+        
     }
 }

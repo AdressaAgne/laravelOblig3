@@ -43,6 +43,7 @@ Route::auth();
 Route::get('message/', 'MessageController@index');
 Route::get('message/sent', 'MessageController@sent');
 Route::get('message/send', 'MessageController@send');
+Route::post('message/send', 'MessageController@store');
 Route::get('message/send/{user}/{Item}', 'MessageController@sendTo');
 Route::get('message/{message}', 'MessageController@message');
 

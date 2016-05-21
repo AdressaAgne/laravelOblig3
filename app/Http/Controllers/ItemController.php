@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Item;
+use App\Item as Item;
 use App\Tag;
 use Request;
+use Auth;
 
 class ItemController extends Controller
 {
@@ -15,13 +16,12 @@ class ItemController extends Controller
 //    }
 //    
     public function index(){
+        
         return view('items.index', ['items' => Item::latest()->get()]);
     }
     
     // Create View
     public function create(){
-        
-        
         $tagList = \App\Tag::lists('name', 'id');
         return view('items.create', compact('tagList'));
     }
@@ -31,7 +31,7 @@ class ItemController extends Controller
         $data = Request::all();
         $data['slug'] = str_slug(uniqid($data['header']), '-');
         
-        $item = Item::create($data);
+        $item = Auth::user()->items()->save(new Item($data));
         
         $item->tags()->attach($data['tag_list']);
         

@@ -25,22 +25,29 @@ html
     height: 100%
     
 body
-    position: relative
     padding-top: 100px
-    padding-bottom: 250px
 
 .container
     font-family: 'Roboto', sans-serif
     
 .page-footer
+    float: left
+    margin-top: 50px
     width: 100%
     background-color: $theme-color
     color: $theme-color-text
-    height: 200px
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
+    padding-bottom: 50px
+    padding-top: 30px
+    position: relative
+    
+    &__tags
+        display: inline-block
+        margin: 5px 3px
+    
+    a
+        color: $theme-color-text
+        font-weight: 300
+
     
     &__copy
         background-color: $theme-color-dark

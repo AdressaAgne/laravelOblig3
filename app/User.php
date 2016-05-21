@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function sent(){
         return $this->hasMany('App\Message', 'from_user');
     }
+    
+    public function items(){
+        return $this->hasMany('App\Item');
+    }
 }

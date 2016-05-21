@@ -59,18 +59,25 @@
             left: 0px
             content: ''
             position: absolute
-            background-color: $theme-color-light
+            background-color: $theme-color
             width: 100%
             height: inherit
             transition: all .2s
-            clip-path: circle(0% at left center)
+            clip-path: circle(0% at center center)
             user-select: none
         
         &:hover:before
             clip-path: circle(100% at center center)
+        
         &--logo
-            font-weight: bold
-            letter-spacing: .5px
+            background-image: url(../#{$theme-logo})
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: $theme-logo-size
+            &:before
+                background-color: rgba($accent-color, .5)
+            & a
+                width: $theme-logo-width
                 
 @media (max-width: $iron-grid-breakpoint-medium)
     .paper-navbar
