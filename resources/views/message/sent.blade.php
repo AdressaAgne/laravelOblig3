@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section('title', 'Sent Messages');
+@section('title', 'Sent Messages')
 
 
 @section('content')
@@ -22,7 +22,11 @@
 @foreach(Auth::user()->sent as $msg)
     <a href="{{ url('/message', $msg->id) }}">
         <div class="table__cell">{{$msg->to->name}}</div>
-        <div class="table__cell">{{$msg->item->header}}</div>
+        @if($msg->item != null)
+            <div class="table__cell">{{$msg->item->header}}</div>
+        @else
+            <div class="table__cell">None</div>
+        @endif
         <div class="table__cell">{{$msg->content}}</div>
         <div class="table__cell">{{$msg->created_at}}</div>
     </a>

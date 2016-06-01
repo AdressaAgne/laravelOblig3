@@ -26,11 +26,18 @@ class MessageController extends Controller
         return View('message.sent');
     }
     
-    public function sendTo($usermail, $itemSlug){
+    public function sendTo($usermail, $itemSlug = null){
         
         $user = User::where('email', $usermail)->get()->lists('name', 'id');
-        $item = Item::where('slug', $itemSlug)->get()->lists('header', 'id');
-        $itemData = Item::where('slug', $itemSlug)->get()->first();
+        
+        if(!is_null($itemSlug)){
+            $item = Item::where('slug', $itemSlug)->get()->lists('header', 'id');
+            $itemData = Item::where('slug', $itemSlug)->get()->first();
+        } else {
+            $item = null;
+            $itemData = null;
+        }
+        
         $items = Item::all()->lists('header', 'id');
         $users = User::all()->lists('name', 'id');
 

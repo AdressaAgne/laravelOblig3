@@ -1,6 +1,7 @@
+
 $(function(){
-    $("#burger").click(function(){
-        $(".menu__item:not(.visible--phone)").toggle();
+    $("#menu-toggle").click(function(){
+        $("#navbar").toggleClass('active');
     });
 
 
@@ -10,5 +11,12 @@ $(function(){
         if($(this).val().length === 0){
             $(this).prev("label").removeClass("active");
         }
+    });
+    
+    // prevent iphone to open safari when a link is clicked.
+    $('a').on('click', function(e){
+        //e.preventDefault();
+        window.location = $(this).attr("href");
+        return false;
     });
 });

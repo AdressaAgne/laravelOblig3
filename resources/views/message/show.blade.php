@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section('title', 'Sent Messages');
+@section('title', 'Sent Messages')
 
 
 @section('content')
@@ -16,7 +16,9 @@
         </div>
     </div>
     <div class="col-6">
-    @include('layouts.paper-card', ['item' => $msg->item])
+    @if($msg->item != null)
+        @include('layouts.paper-card', ['item' => $msg->item])
+    @endif
     </div>
 </div>
 @endsection

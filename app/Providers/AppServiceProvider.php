@@ -5,6 +5,7 @@ namespace App\Providers;
 use View;
 use Illuminate\Support\ServiceProvider;
 use \App\Tag;
+use Auth;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -18,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function($view){
             $view->with('tags', Tag::all());
+            if(!is_null(Auth::user())){
+                $view->with('loggedIn', Auth::user());
+            }
+            
         });
     }
 

@@ -19,7 +19,7 @@
     </header>
 
     <main class="paper-card__content">
-       <h2 class="paper-card--text">{{$item->header}} <small>Posted by: {{$item->user->name}}</small></h2>
+       <h2 class="paper-card--text">{{$item->header}} <small>Posted by: <a href="{{url('profile', $item->user->id)}}">{{$item->user->name}}</a></small></h2>
         {{ $item->content }}
     </main>
 
@@ -31,5 +31,42 @@
         </div>
     </footer>
 </article>
+
+@endsection
+
+
+@section('scripts')
+
+<script>
+
+    // request permission on page load
+document.addEventListener('DOMContentLoaded', function () {
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+});
+
+function notifyMe() {
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('{{$item->header}}', {
+      icon: '{{ asset('assets/img/favicon/android-chrome-192x192.png') }}',
+      body: "{{$item->content}}",
+    });
+
+    notification.onclick = function () {
+      window.open("{{ url('category', $tag->slug) }}");      
+    };
+    
+  }
+
+}
+notifyMe();
+</script>
 
 @endsection
